@@ -1,0 +1,78 @@
+{
+  "name": "contributte/doctrine-skeleton",
+  "description": "Nette and Doctrine project skeleton. Using Doctrine (@nettrine) and Contributte (@contributte) libraries by @f3l1x.",
+  "keywords": [
+    "php",
+    "nette",
+    "contributte",
+    "sandbox",
+    "project",
+    "skeleton"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=8.0",
+
+    "contributte/bootstrap": "^0.5.0",
+    "contributte/application": "^0.5.0",
+    "contributte/di": "^0.5.0",
+    "contributte/cache": "^0.6.0",
+    "contributte/http": "^0.4.0",
+    "contributte/forms": "^0.5.0",
+    "contributte/mail": "^0.6.0",
+    "contributte/security": "^0.4.0",
+    "contributte/utils": "^0.5.0",
+    "contributte/latte": "^0.5.0",
+    "contributte/tracy": "^0.5.0",
+    "contributte/console": "~0.9.0",
+    "contributte/translation": "~0.9.0",
+    "contributte/neonizer": "~0.5.0",
+
+    "nettrine/dbal": "~0.8.0",
+    "nettrine/orm": "~0.8.0",
+    "nettrine/migrations": "~0.7.0",
+    "nettrine/fixtures": "~0.6.0",
+    "nettrine/extensions-atlantic18": "~0.6.0"
+  },
+  "require-dev": {
+    "contributte/dev": "^0.4",
+    "ninjify/qa": "^0.12",
+    "ninjify/nunjuck": "^0.4",
+    "phpstan/phpstan": "^0.12.36",
+    "phpstan/extension-installer": "^1.0",
+    "phpstan/phpstan-nette": "^0.12.8",
+    "phpstan/phpstan-doctrine": "^0.12.19",
+    "phpstan/phpstan-strict-rules": "^0.12.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app",
+      "DB\\": "db"
+    }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+
+  "scripts": {
+    "set-config": [
+      "Contributte\\Neonizer\\NeonizerExtension::set"
+    ],
+    "post-install-cmd": [
+      "Contributte\\Neonizer\\NeonizerExtension::process"
+    ],
+    "post-update-cmd": [
+      "Contributte\\Neonizer\\NeonizerExtension::process"
+    ]
+  },
+  "extra": {
+    "neonizer": {
+      "files": [
+        {
+          "dist-file": "config/local.neon.dist",
+          "file": "config/local.neon"
+        }
+      ]
+    }
+  }
+}
