@@ -8,6 +8,8 @@ use App\Model\Database\Basic\Entity\Tag;
 use App\Model\Database\EntityManagerDecorator;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
+use Nette\DI\Attributes\Inject;
+use Nettrine\ORM\ManagerRegistry;
 
 class BasicPresenter extends Presenter
 {
@@ -15,8 +17,12 @@ class BasicPresenter extends Presenter
 	/** @inject */
 	public EntityManagerDecorator $em;
 
+	#[Inject]
+	public ManagerRegistry $managerRegistry;
+
 	public function renderDefault(): void
 	{
+		bdump($this->managerRegistry);
 		$bookRepository = $this->em->getBookRepository();
 		$categoryRepository = $this->em->getCategoryRepository();
 		$tagRepository = $this->em->getTagRepository();
