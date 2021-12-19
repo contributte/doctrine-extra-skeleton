@@ -58,13 +58,13 @@ composer create-project -s dev contributte/doctrine-skeleton acme
    composer create-project -s dev contributte/doctrine-skeleton
    ```
 
-2) After that, you have to setup Postgres >= 10 database. You can start it manually or use docker image `postgres:10`.
+2) After that, you have to setup Postgres >= 12 database. You can start it manually or use docker image `postgres:12`.
 
    ```
-   docker run -it -p 5432:5432 -e POSTGRES_PASSWORD=doctrine -e POSTGRES_USER=doctrine postgres:10
+   docker run -it -p 5432:5432 -e POSTGRES_PASSWORD=doctrine -e POSTGRES_USER=doctrine dockette/postgres:12
    ```
 
-   Or use make task, `make loc-postgres`.
+   Or use make task, `make docker-postgres`.
 
 3) Custom configuration file is located at `app/config/local.neon`. Edit it if you want.
 
@@ -89,7 +89,7 @@ composer create-project -s dev contributte/doctrine-skeleton acme
 
 5) Start your devstack or use PHP local development server.
 
-   You can start PHP server by running `php -S localhost:8000 -t www` or use prepared make task `make loc-web`.
+   You can start PHP server by running `php -S localhost:8000 -t www` or use prepared make task `make dev`.
 
 6) Open http://localhost:8000 and enjoy!
 
