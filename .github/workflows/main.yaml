@@ -144,7 +144,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:10
+        image: postgres:13
         env:
           POSTGRES_PASSWORD: doctrine
           POSTGRES_USER: doctrine
@@ -215,4 +215,3 @@ jobs:
 
       - name: "Tests"
         run: "make tests"
-
