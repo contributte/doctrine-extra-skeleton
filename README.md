@@ -44,11 +44,34 @@ https://examples.contributte.org/doctrine-skeleton/
 
 ## Installation
 
-To install latest version of `contributte/doctrine-skeleton` use [Composer](https://getcomposer.com).
+## Install with [docker compose](https://github.com/docker/compose)
 
-```
-composer create-project -s dev contributte/doctrine-skeleton acme
-```
+1) At first, use composer to install this project.
+
+   ```
+   composer create-project -s dev contributte/doctrine-skeleton
+   ```
+
+2) Modify `config/local.neon` and set host to `database`
+
+   Default configuration should look like this. There is preconfigured database. Pick PostgreSQL or MariaDB.
+
+   ```neon
+   # Host Config
+   parameters:
+	    database:
+		    host: database
+		    dbname: doctrine
+		    user: doctrine
+		    password: doctrine
+   ```
+
+3) Run `docker-compose up`
+
+4) Open http://localhost and enjoy!
+
+
+## Install with [docker](https://github.com/docker/docker/)
 
 ### Install using [docker](https://github.com/docker/docker/)
 
