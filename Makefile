@@ -13,8 +13,8 @@ setup:
 	chmod +0777 var/tmp var/log
 
 clean:
-	find var/tmp -mindepth 1 ! -name '.gitignore' -type f -or -type d -exec rm -rf {} +
-	find var/log -mindepth 1 ! -name '.gitignore' -type f -or -type d -exec rm -rf {} +
+	find var/tmp -mindepth 1 ! -name '.gitignore' -type f,d -exec rm -rf {} +
+	find var/log -mindepth 1 ! -name '.gitignore' -type f,d -exec rm -rf {} +
 
 ############################################################
 # DEVELOPMENT ##############################################
@@ -51,7 +51,11 @@ build:
 ############################################################
 .PHONY: deploy
 
-deploy: clean project build clean
+deploy:
+	$(MAKE) clean
+	$(MAKE) project
+	$(MAKE) build
+	$(MAKE) clean
 
 ############################################################
 # DOCKER ###################################################
