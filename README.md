@@ -44,7 +44,7 @@ https://examples.contributte.org/doctrine-skeleton/
 
 ## Installation
 
-To install latest version of `contributte/doctrine-skeleton` use [Composer](https://getcomposer.com).
+To install latest version of `contributte/doctrine-skeleton` use [Composer](https://getcomposer.org).
 
 ```
 composer create-project -s dev contributte/doctrine-skeleton acme
