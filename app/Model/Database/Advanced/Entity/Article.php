@@ -39,7 +39,6 @@ class Article implements Translatable
 	/**
 	 * @Gedmo\Slug(fields={"title"})
 	 * @ORM\Column(length=128, unique=true)
-	 * @phpstan-ignore-next-line
 	 */
 	private string $slug;
 
@@ -55,29 +54,24 @@ class Article implements Translatable
 	 * this is not a mapped field of entity metadata, just a simple property
 	 *
 	 * @Gedmo\Locale
-	 * @phpstan-ignore-next-line
 	 */
 	private ?string $locale = null;
 
 	/**
-	 * @var DateTime $created
 	 * @Gedmo\Timestampable(on="create")
 	 * @ORM\Column(type="datetime")
-	 * @phpstan-ignore-next-line
 	 */
 	private DateTime $created;
 
 	/**
 	 * @Gedmo\Timestampable(on="update")
 	 * @ORM\Column(type="datetime")
-	 * @phpstan-ignore-next-line
 	 */
 	private DateTime $updated;
 
 	/**
 	 * @ORM\Column(name="content_changed", type="datetime", nullable=true)
 	 * @Gedmo\Timestampable(on="change", field={"title", "content"})
-	 * @phpstan-ignore-next-line
 	 */
 	private ?DateTime $contentChanged;
 

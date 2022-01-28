@@ -28,21 +28,18 @@ class ArticleCategory
 	/**
 	 * @Gedmo\TreeLeft
 	 * @ORM\Column(name="lft", type="integer")
-	 * @phpstan-ignore-next-line
 	 */
 	private int $lft;
 
 	/**
 	 * @Gedmo\TreeLevel
 	 * @ORM\Column(name="lvl", type="integer")
-	 * @phpstan-ignore-next-line
 	 */
 	private int $lvl;
 
 	/**
 	 * @Gedmo\TreeRight
 	 * @ORM\Column(name="rgt", type="integer")
-	 * @phpstan-ignore-next-line
 	 */
 	private int $rgt;
 
@@ -64,7 +61,6 @@ class ArticleCategory
 	 * @var Collection&iterable<ArticleCategory>
 	 * @ORM\OneToMany(targetEntity="ArticleCategory", mappedBy="parent")
 	 * @ORM\OrderBy({"lft" = "ASC"})
-	 * @phpstan-ignore-next-line
 	 */
 	private Collection $children;
 
