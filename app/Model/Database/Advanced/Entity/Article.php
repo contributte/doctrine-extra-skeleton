@@ -58,7 +58,6 @@ class Article implements Translatable
 	private ?string $locale = null;
 
 	/**
-	 * @var DateTime $created
 	 * @Gedmo\Timestampable(on="create")
 	 * @ORM\Column(type="datetime")
 	 */

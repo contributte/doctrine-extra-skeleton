@@ -1,5 +1,5 @@
 parameters:
-	level: max
+	level: 8
 	paths:
 		- app
 
@@ -7,3 +7,14 @@ parameters:
 
 	doctrine:
 		objectManagerLoader: .build/object-manager.php
+
+	propertyAlwaysWrittenTags:
+		- '@@Gedmo'
+	propertyAlwaysReadTags:
+		- '@@Gedmo'
+
+	ignoreErrors:
+		-
+			message: "#^Property App\\\\Model\\\\Database\\\\Advanced\\\\Entity\\\\ArticleCategory\\:\\:\\$children is never written, only read\\.$#"
+			count: 1
+			path: app/Model/Database/Advanced/Entity/ArticleCategory.php

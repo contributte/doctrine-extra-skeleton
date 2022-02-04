@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <ruleset name="Contributte">
-
-	<!-- Extending rulesets -->
-	<rule ref="./vendor/ninjify/coding-standard/ruleset.xml">
+	<!-- Contributte Coding Standard -->
+	<rule ref="./vendor/ninjify/coding-standard/contributte.xml">
+		<!-- Exclude some rules -->
+		<exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.MissingVariable"/>
+		<exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/>
 	</rule>
 
 	<!-- Specific rules -->
@@ -10,9 +12,7 @@
 		<properties>
 			<property name="rootNamespaces" type="array">
 				<element key="app" value="App"/>
-				<element key="db" value="DB"/>
 				<element key="tests/toolkit" value="Tests\Toolkit"/>
-				<element key="tests/cases" value="Tests\Cases"/>
 			</property>
 		</properties>
 	</rule>
