@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "576a930f1ffe56196298fac23de2b12c",
+    "content-hash": "50690bcf9bc0a704b30f2dd4c67358da",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -894,16 +894,16 @@
         },
         {
             "name": "contributte/translation",
-            "version": "v0.9.4",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contributte/translation.git",
-                "reference": "0778d049b8fc711def6b5afbb069e8777b72b003"
+                "reference": "1c218df210cdac04c63bb59e6acccef1618c1d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contributte/translation/zipball/0778d049b8fc711def6b5afbb069e8777b72b003",
-                "reference": "0778d049b8fc711def6b5afbb069e8777b72b003",
+                "url": "https://api.github.com/repos/contributte/translation/zipball/1c218df210cdac04c63bb59e6acccef1618c1d02",
+                "reference": "1c218df210cdac04c63bb59e6acccef1618c1d02",
                 "shasum": ""
             },
             "require": {
@@ -965,7 +965,7 @@
             ],
             "support": {
                 "issues": "https://github.com/contributte/translation/issues",
-                "source": "https://github.com/contributte/translation/tree/v0.9.4"
+                "source": "https://github.com/contributte/translation/tree/v1.0.1"
             },
             "funding": [
                 {
@@ -977,7 +977,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-13T19:28:40+00:00"
+            "time": "2022-02-14T12:54:26+00:00"
         },
         {
             "name": "contributte/utils",
