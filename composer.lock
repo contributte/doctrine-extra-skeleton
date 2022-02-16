@@ -894,16 +894,16 @@
         },
         {
             "name": "contributte/translation",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contributte/translation.git",
-                "reference": "1c218df210cdac04c63bb59e6acccef1618c1d02"
+                "reference": "04b24fb2a14e38f811b633d88fe37b1ff1731e9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contributte/translation/zipball/1c218df210cdac04c63bb59e6acccef1618c1d02",
-                "reference": "1c218df210cdac04c63bb59e6acccef1618c1d02",
+                "url": "https://api.github.com/repos/contributte/translation/zipball/04b24fb2a14e38f811b633d88fe37b1ff1731e9f",
+                "reference": "04b24fb2a14e38f811b633d88fe37b1ff1731e9f",
                 "shasum": ""
             },
             "require": {
@@ -965,7 +965,7 @@
             ],
             "support": {
                 "issues": "https://github.com/contributte/translation/issues",
-                "source": "https://github.com/contributte/translation/tree/v1.0.1"
+                "source": "https://github.com/contributte/translation/tree/v1.0.2"
             },
             "funding": [
                 {
@@ -977,7 +977,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-14T12:54:26+00:00"
+            "time": "2022-02-16T06:54:41+00:00"
         },
         {
             "name": "contributte/utils",
