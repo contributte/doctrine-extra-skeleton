@@ -36,6 +36,7 @@ extensions:
 
 nettrine.dbal:
 	connection:
+		wrapperClass: 'App\MyWrapper'
 		driver: pdo_pgsql
 		host: %database.host%
 		dbname: %database.dbname%
