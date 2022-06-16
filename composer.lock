@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50690bcf9bc0a704b30f2dd4c67358da",
+    "content-hash": "e04db73bea9934dfef796809a8823d78",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -914,16 +914,16 @@
         },
         {
             "name": "contributte/translation",
-            "version": "v1.0.3",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contributte/translation.git",
-                "reference": "9796ce36eab5561a3724ddcc8196d044cb0686d3"
+                "reference": "8f0f7723be4753fa458f4ac36ebbe62d0ec5b5f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contributte/translation/zipball/9796ce36eab5561a3724ddcc8196d044cb0686d3",
-                "reference": "9796ce36eab5561a3724ddcc8196d044cb0686d3",
+                "url": "https://api.github.com/repos/contributte/translation/zipball/8f0f7723be4753fa458f4ac36ebbe62d0ec5b5f4",
+                "reference": "8f0f7723be4753fa458f4ac36ebbe62d0ec5b5f4",
                 "shasum": ""
             },
             "require": {
@@ -931,7 +931,7 @@
                 "nette/di": "^3.0.6",
                 "nette/finder": "^2.5.2",
                 "nette/http": "^3.0",
-                "nette/neon": "^3.0",
+                "nette/neon": "^3.3.1",
                 "nette/routing": "^3.0",
                 "nette/schema": "^1.0",
                 "nette/utils": "^3.2.1",
@@ -985,7 +985,7 @@
             ],
             "support": {
                 "issues": "https://github.com/contributte/translation/issues",
-                "source": "https://github.com/contributte/translation/tree/v1.0.3"
+                "source": "https://github.com/contributte/translation/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -997,7 +997,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-04T08:31:48+00:00"
+            "time": "2022-06-16T13:30:33+00:00"
         },
         {
             "name": "contributte/utils",
