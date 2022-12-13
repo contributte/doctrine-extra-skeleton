@@ -112,13 +112,13 @@ Take a detailed look :eyes: at each single package.
 - [contributte/translation](https://contributte.org/packages/contributte/translation.html)
 - [contributte/neonizer](https://contributte.org/packages/contributte/neonizer.html)
 
-**Nettrine**
+**Doctrine**
 
-- [nettrine/orm](https://contributte.org/packages/nettrine/orm.html)
-- [nettrine/dbal](https://contributte.org/packages/nettrine/dbal.html)
-- [nettrine/migrations](https://contributte.org/packages/nettrine/migrations.html)
-- [nettrine/fixtures](https://contributte.org/packages/nettrine/fixtures.html)
-- [nettrine/extensions-atlantic18](https://contributte.org/packages/nettrine/extensions-atlantic18.html)
+- [contributte/doctrine-orm](https://contributte.org/packages/contributte/doctrine-orm.html)
+- [contributte/doctrine-dbal](https://contributte.org/packages/contributte/doctrine-dbal.html)
+- [contributte/doctrine-migrations](https://contributte.org/packages/contributte/doctrine-migrations.html)
+- [contributte/doctrine-fixtures](https://contributte.org/packages/contributte/doctrine-fixtures.html)
+- [contributte/doctrine-extensions-atlantic18](https://contributte.org/packages/contributte/doctrine-extensions-atlantic18.html)
 
 **Dev**
 
