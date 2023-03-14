@@ -919,27 +919,27 @@
         },
         {
             "name": "contributte/translation",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contributte/translation.git",
-                "reference": "2ab10a7c6bb64cfb9e069f45a23b1a3ca5fc3125"
+                "reference": "a8192980a8b48df411c3be68a22a082b75e41505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contributte/translation/zipball/2ab10a7c6bb64cfb9e069f45a23b1a3ca5fc3125",
-                "reference": "2ab10a7c6bb64cfb9e069f45a23b1a3ca5fc3125",
+                "url": "https://api.github.com/repos/contributte/translation/zipball/a8192980a8b48df411c3be68a22a082b75e41505",
+                "reference": "a8192980a8b48df411c3be68a22a082b75e41505",
                 "shasum": ""
             },
             "require": {
                 "latte/latte": "^2.6|^3.0",
                 "nette/di": "^3.0.6",
-                "nette/finder": "^2.5.2",
+                "nette/finder": "^2.5.2|~3.0.0",
                 "nette/http": "^3.0.7",
                 "nette/neon": "^3.3.1",
                 "nette/routing": "^3.0",
                 "nette/schema": "^1.0",
-                "nette/utils": "^3.2.1",
+                "nette/utils": "^3.2.1|~4.0.0",
                 "php": "^8.0.2",
                 "symfony/config": "^6.0",
                 "symfony/translation": "^6.0"
@@ -950,7 +950,7 @@
                 "nette/application": "^3.1.0",
                 "nette/bootstrap": "^3.0",
                 "nette/database": "^3.1.1",
-                "nette/robot-loader": " ^3.4.0",
+                "nette/robot-loader": "^3.4.0|~4.0.0",
                 "nette/tester": "^2.3.1",
                 "ninjify/nunjuck": "^0.3.0",
                 "ninjify/qa": "^0.13",
@@ -990,7 +990,7 @@
             ],
             "support": {
                 "issues": "https://github.com/contributte/translation/issues",
-                "source": "https://github.com/contributte/translation/tree/v2.0.2"
+                "source": "https://github.com/contributte/translation/tree/v2.0.3"
             },
             "funding": [
                 {
@@ -1002,7 +1002,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-25T10:43:13+00:00"
+            "time": "2023-03-13T19:07:37+00:00"
         },
         {
             "name": "contributte/utils",
@@ -2933,16 +2933,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "4799ee684453bf5e70df1e87bec80bfbfc0e7d13"
+                "reference": "355cefbd71011a76b670fda3340d612a6944f972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/4799ee684453bf5e70df1e87bec80bfbfc0e7d13",
-                "reference": "4799ee684453bf5e70df1e87bec80bfbfc0e7d13",
+                "url": "https://api.github.com/repos/nette/di/zipball/355cefbd71011a76b670fda3340d612a6944f972",
+                "reference": "355cefbd71011a76b670fda3340d612a6944f972",
                 "shasum": ""
             },
             "require": {
@@ -2999,9 +2999,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/di/issues",
-                "source": "https://github.com/nette/di/tree/v3.1.1"
+                "source": "https://github.com/nette/di/tree/v3.1.2"
             },
-            "time": "2023-01-16T03:38:02+00:00"
+            "time": "2023-03-13T14:03:15+00:00"
         },
         {
             "name": "nette/finder",
@@ -3366,23 +3366,24 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v4.0.5",
+            "version": "v4.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "a8d6abeae5d8c7202cd69600e086a7a72877fc86"
+                "reference": "0f1275bb8d39b3eb92b57c22a51fe693f1f145a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/a8d6abeae5d8c7202cd69600e086a7a72877fc86",
-                "reference": "a8d6abeae5d8c7202cd69600e086a7a72877fc86",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/0f1275bb8d39b3eb92b57c22a51fe693f1f145a5",
+                "reference": "0f1275bb8d39b3eb92b57c22a51fe693f1f145a5",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.2.7 || ^4.0",
+                "nette/utils": "^3.2.9 || ^4.0",
                 "php": ">=8.0 <8.3"
             },
             "require-dev": {
+                "jetbrains/phpstorm-attributes": "dev-master",
                 "nette/tester": "^2.4",
                 "nikic/php-parser": "^4.15",
                 "phpstan/phpstan": "^1.0",
@@ -3428,9 +3429,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/php-generator/issues",
-                "source": "https://github.com/nette/php-generator/tree/v4.0.5"
+                "source": "https://github.com/nette/php-generator/tree/v4.0.6"
             },
-            "time": "2022-11-02T20:37:46+00:00"
+            "time": "2023-03-13T17:38:30+00:00"
         },
         {
             "name": "nette/robot-loader",
@@ -3501,21 +3502,21 @@
         },
         {
             "name": "nette/routing",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/routing.git",
-                "reference": "5e02bdde257029db0223d3291c281d913abd587f"
+                "reference": "eaefe6375303799366f3e43977daaf33f5f89b95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/routing/zipball/5e02bdde257029db0223d3291c281d913abd587f",
-                "reference": "5e02bdde257029db0223d3291c281d913abd587f",
+                "url": "https://api.github.com/repos/nette/routing/zipball/eaefe6375303799366f3e43977daaf33f5f89b95",
+                "reference": "eaefe6375303799366f3e43977daaf33f5f89b95",
                 "shasum": ""
             },
             "require": {
-                "nette/http": "^3.0",
-                "nette/utils": "^3.0",
+                "nette/http": "^3.0 || ~4.0.0",
+                "nette/utils": "^3.0 || ~4.0.0",
                 "php": ">=7.1"
             },
             "require-dev": {
@@ -3557,9 +3558,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/routing/issues",
-                "source": "https://github.com/nette/routing/tree/v3.0.3"
+                "source": "https://github.com/nette/routing/tree/v3.0.4"
             },
-            "time": "2022-04-16T23:08:16+00:00"
+            "time": "2023-01-18T04:58:41+00:00"
         },
         {
             "name": "nette/schema",
@@ -4584,16 +4585,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v6.0.11",
+            "version": "v6.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "956d4ec5df274dda91a4cedfccc2bfd063f6f649"
+                "reference": "db4fc45c24e0c3e2198e68ada9d7f90daa1f97e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/956d4ec5df274dda91a4cedfccc2bfd063f6f649",
-                "reference": "956d4ec5df274dda91a4cedfccc2bfd063f6f649",
+                "url": "https://api.github.com/repos/symfony/config/zipball/db4fc45c24e0c3e2198e68ada9d7f90daa1f97e3",
+                "reference": "db4fc45c24e0c3e2198e68ada9d7f90daa1f97e3",
                 "shasum": ""
             },
             "require": {
@@ -4642,7 +4643,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v6.0.11"
+                "source": "https://github.com/symfony/config/tree/v6.0.19"
             },
             "funding": [
                 {
@@ -4658,7 +4659,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-27T17:10:44+00:00"
+            "time": "2023-01-09T04:36:00+00:00"
         },
         {
             "name": "symfony/console",
@@ -4824,16 +4825,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v6.0.13",
+            "version": "v6.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "3adca49133bd055ebe6011ed1e012be3c908af79"
+                "reference": "3d49eec03fda1f0fc19b7349fbbe55ebc1004214"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3adca49133bd055ebe6011ed1e012be3c908af79",
-                "reference": "3adca49133bd055ebe6011ed1e012be3c908af79",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3d49eec03fda1f0fc19b7349fbbe55ebc1004214",
+                "reference": "3d49eec03fda1f0fc19b7349fbbe55ebc1004214",
                 "shasum": ""
             },
             "require": {
@@ -4867,7 +4868,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v6.0.13"
+                "source": "https://github.com/symfony/filesystem/tree/v6.0.19"
             },
             "funding": [
                 {
@@ -4883,7 +4884,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-21T20:25:27+00:00"
+            "time": "2023-01-20T17:44:14+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -5684,16 +5685,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v6.0.14",
+            "version": "v6.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "6f99eb179aee4652c0a7cd7c11f2a870d904330c"
+                "reference": "9c24b3fdbbe9fb2ef3a6afd8bbaadfd72dad681f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/6f99eb179aee4652c0a7cd7c11f2a870d904330c",
-                "reference": "6f99eb179aee4652c0a7cd7c11f2a870d904330c",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/9c24b3fdbbe9fb2ef3a6afd8bbaadfd72dad681f",
+                "reference": "9c24b3fdbbe9fb2ef3a6afd8bbaadfd72dad681f",
                 "shasum": ""
             },
             "require": {
@@ -5759,7 +5760,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v6.0.14"
+                "source": "https://github.com/symfony/translation/tree/v6.0.19"
             },
             "funding": [
                 {
@@ -5775,7 +5776,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-07T08:02:12+00:00"
+            "time": "2023-01-01T08:36:10+00:00"
         },
         {
             "name": "symfony/translation-contracts",
