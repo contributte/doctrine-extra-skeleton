@@ -13,7 +13,7 @@ trait TRepositoryExtra
 {
 
 	/**
-77	 * @return mixed[]
+	 * @return array<string>
 	 */
 	public function findPairs(string $value, string $key = 'id'): array
 	{
