@@ -2,48 +2,41 @@
 
 namespace App\Model\Database\Basic\Entity;
 
+use App\Model\Database\Basic\Repository\BookRepository;
 use App\Model\Database\Entity\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Event\PreRemoveEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Model\Database\Basic\Repository\BookRepository")
- * @ORM\HasLifecycleCallbacks
- */
+#[ORM\Entity(repositoryClass: BookRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Book extends Entity
 {
 
-	/**
-	 * @ORM\Column(name="id", type="integer")
-	 * @ORM\Id
-	 * @ORM\GeneratedValue
-	 */
+	#[ORM\Column(name: 'id', type: 'integer')]
+	#[ORM\Id]
+	#[ORM\GeneratedValue()]
 	private int $id;
 
-	/** @ORM\Column(type="string") */
+	#[ORM\Column(type: 'string')]
 	private string $title;
 
-	/** @ORM\Column(type="boolean") */
+	#[ORM\Column(type: 'boolean')]
 	private bool $alreadyRead = false;
 
-	/** @ORM\Column(type="string") */
+	#[ORM\Column(type: 'string')]
 	private string $createdAt;
 
-	/** @ORM\Column(type="string", nullable=true) */
+	#[ORM\Column(type: 'string', nullable: true)]
 	private ?string $updatedAt = null;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="Category", inversedBy="books")
-	 * @ORM\JoinColumn(nullable=FALSE)
-	 */
+	#[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'books')]
+	#[ORM\JoinColumn(nullable: false)]
 	private Category $category;
 
-	/**
-	 * @var Tag[]|Collection
-	 * @ORM\ManyToMany(targetEntity="Tag", mappedBy="books")
-	 */
+	/** @var Tag[]|Collection */
+	#[ORM\ManyToMany(targetEntity: Tag::class, mappedBy:'books')]
 	private Collection $tags;
 
 	public function __construct()
@@ -104,25 +97,19 @@ class Book extends Entity
 		return $this->updatedAt;
 	}
 
-	/**
-	 * @ORM\PrePersist
-	 */
+	#[ORM\PrePersist]
 	public function onPrePersist(): void
 	{
 		$this->createdAt = $this->getCurrentDate();
 	}
 
-	/**
-	 * @ORM\PreUpdate()
-	 */
+	#[ORM\PreUpdate]
 	public function onPreUpdate(): void
 	{
 		$this->updatedAt = $this->getCurrentDate();
 	}
 
-	/**
-	 * @ORM\PreRemove()
-	 */
+	#[ORM\PreRemove]
 	public function onPreRemove(PreRemoveEventArgs $args): void
 	{
 		/*

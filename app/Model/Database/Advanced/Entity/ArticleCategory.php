@@ -2,72 +2,55 @@
 
 namespace App\Model\Database\Advanced\Entity;
 
+use App\Model\Database\Advanced\Repository\ArticleCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-/**
- * @Gedmo\Tree(type="nested")
- * @ORM\Table
- * @ORM\Entity(repositoryClass="App\Model\Database\Advanced\Repository\ArticleCategoryRepository")
- */
+#[Gedmo\Tree(type: 'nested')]
+#[ORM\Table]
+#[ORM\Entity(repositoryClass: ArticleCategoryRepository::class)]
 class ArticleCategory
 {
 
-	/**
-	 * @ORM\Column(name="id", type="integer")
-	 * @ORM\Id
-	 * @ORM\GeneratedValue
-	 */
+	#[ORM\Column(name: 'id', type: 'integer')]
+	#[ORM\Id]
+	#[ORM\GeneratedValue()]
 	private int $id;
 
-	/** @ORM\Column(name="title", type="string", length=64) */
+	#[ORM\Column(name: 'title', type: 'string', length: 64)]
 	private string $title;
 
-	/**
-	 * @Gedmo\TreeLeft
-	 * @ORM\Column(name="lft", type="integer")
-	 */
+	#[Gedmo\TreeLeft]
+	#[ORM\Column(name: 'lft', type: 'integer')]
 	private int $lft;
 
-	/**
-	 * @Gedmo\TreeLevel
-	 * @ORM\Column(name="lvl", type="integer")
-	 */
+	#[Gedmo\TreeLevel]
+	#[ORM\Column(name: 'lvl', type: 'integer')]
 	private int $lvl;
 
-	/**
-	 * @Gedmo\TreeRight
-	 * @ORM\Column(name="rgt", type="integer")
-	 */
+	#[Gedmo\TreeRight]
+	#[ORM\Column(name: 'rgt', type: 'integer')]
 	private int $rgt;
 
-	/**
-	 * @Gedmo\TreeRoot
-	 * @ORM\ManyToOne(targetEntity="ArticleCategory")
-	 * @ORM\JoinColumn(name="tree_root", referencedColumnName="id", onDelete="CASCADE")
-	 */
+	#[Gedmo\TreeRoot]
+	#[ORM\ManyToOne(targetEntity: self::class)]
+	#[ORM\JoinColumn(name: 'tree_root', referencedColumnName: 'id', onDelete: 'CASCADE')]
 	private ?self $root = null;
 
-	/**
-	 * @Gedmo\TreeParent
-	 * @ORM\ManyToOne(targetEntity="ArticleCategory", inversedBy="children")
-	 * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
-	 */
+	#[Gedmo\TreeParent]
+	#[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'children')]
+	#[ORM\JoinColumn(name: 'parent_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
 	private ?self $parent = null;
 
-	/**
-	 * @var Collection&iterable<ArticleCategory>
-	 * @ORM\OneToMany(targetEntity="ArticleCategory", mappedBy="parent")
-	 * @ORM\OrderBy({"lft" = "ASC"})
-	 */
+	/** @var Collection&iterable<ArticleCategory> */
+	#[ORM\OneToMany(targetEntity: self::class, mappedBy: 'parent')]
+	#[ORM\OrderBy(['lft' => 'ASC'])]
 	private Collection $children;
 
-	/**
-	 * @var Collection&iterable<Article>
-	 * @ORM\OneToMany(targetEntity="Article", mappedBy="category")
-	 */
+	/** @var Collection&iterable<Article> */
+	#[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'category')]
 	private Collection $articles;
 
 	public function __construct()
