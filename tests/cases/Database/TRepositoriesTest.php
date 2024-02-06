@@ -4,11 +4,11 @@ namespace Tests\Integration\Database;
 
 use App\Model\Database\Entity\Entity;
 use App\Model\Database\TRepositories;
+use Contributte\Tester\Toolkit;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Nette\DI\Container;
-use Ninjify\Nunjuck\Toolkit;
 use ReflectionClass;
 use Tester\Assert;
 

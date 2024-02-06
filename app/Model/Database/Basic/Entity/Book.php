@@ -5,10 +5,8 @@ namespace App\Model\Database\Basic\Entity;
 use App\Model\Database\Entity\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PreRemoveEventArgs;
 use Doctrine\ORM\Mapping as ORM;
-use LogicException;
-use Nettrine\ORM\Entity\Attributes\Id;
 
 /**
  * @ORM\Entity(repositoryClass="App\Model\Database\Basic\Repository\BookRepository")
@@ -17,7 +15,12 @@ use Nettrine\ORM\Entity\Attributes\Id;
 class Book extends Entity
 {
 
-	use Id;
+	/**
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue
+	 */
+	private int $id;
 
 	/** @ORM\Column(type="string") */
 	private string $title;
@@ -46,6 +49,11 @@ class Book extends Entity
 	public function __construct()
 	{
 		$this->tags = new ArrayCollection();
+	}
+
+	public function getId(): int
+	{
+		return $this->id;
 	}
 
 	public function getTitle(): string
@@ -102,10 +110,6 @@ class Book extends Entity
 	public function onPrePersist(): void
 	{
 		$this->createdAt = $this->getCurrentDate();
-
-		if ($this->id !== null) {
-			throw new LogicException('Entity id field should be null during prePersistEvent');
-		}
 	}
 
 	/**
@@ -119,7 +123,7 @@ class Book extends Entity
 	/**
 	 * @ORM\PreRemove()
 	 */
-	public function onPreRemove(LifecycleEventArgs $args): void
+	public function onPreRemove(PreRemoveEventArgs $args): void
 	{
 		/*
 		 * Note - remove will call SQL delete command that removes the record from DB

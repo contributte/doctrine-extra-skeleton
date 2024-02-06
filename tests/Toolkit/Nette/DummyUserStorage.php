@@ -9,7 +9,7 @@ final class DummyUserStorage implements UserStorage
 {
 
 	/** @var IIdentity|NULL */
-	private $identity;
+	private ?IIdentity $identity = null;
 
 	public function saveAuthentication(IIdentity $identity): void
 	{
@@ -21,6 +21,9 @@ final class DummyUserStorage implements UserStorage
 		$this->identity = null;
 	}
 
+	/**
+	 * @return array{bool, ?IIdentity, ?int}
+	 */
 	public function getState(): array
 	{
 		return [$this->identity !== null, $this->identity, null];

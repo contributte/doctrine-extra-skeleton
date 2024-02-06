@@ -2,6 +2,7 @@
 
 namespace App\Model\Database\Advanced\Entity;
 
+use App\Model\Database\Entity\Entity;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -13,7 +14,7 @@ use Gedmo\Translatable\Translatable;
  * @Gedmo\Loggable
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false, hardDelete=true)
  */
-class Article implements Translatable
+class Article extends Entity implements Translatable
 {
 
 	/**
@@ -131,6 +132,11 @@ class Article implements Translatable
 	public function setTitle(string $title): void
 	{
 		$this->title = $title;
+	}
+
+	public function setSlug(?string $slug): void
+	{
+		$this->slug = $slug ?? $this->title;
 	}
 
 	public function setContent(string $content): void

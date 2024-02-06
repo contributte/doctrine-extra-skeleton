@@ -3,7 +3,7 @@
 namespace App;
 
 use Contributte\Bootstrap\ExtraConfigurator;
-use Nette\Configurator;
+use Nette\Bootstrap\Configurator;
 
 class Bootstrap
 {

@@ -2,10 +2,10 @@
 
 namespace Tests\Integration\Database\Entity;
 
+use Contributte\Tester\Toolkit;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaValidator;
 use Nette\DI\Container;
-use Ninjify\Nunjuck\Toolkit;
 use Tester\Assert;
 
 /** @var Container $container */
@@ -19,7 +19,7 @@ Toolkit::test(function () use ($container): void {
 	$validator = new SchemaValidator($em);
 	$validations = $validator->validateMapping();
 	foreach ($validations as $fails) {
-		foreach ((array) $fails as $fail) {
+		foreach ($fails as $fail) {
 			Assert::fail($fail);
 		}
 	}

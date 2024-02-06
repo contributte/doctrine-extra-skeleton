@@ -2,10 +2,11 @@
 
 namespace Tests\Integration\Container;
 
-use Nette\Configurator;
+use Contributte\Tester\Toolkit;
+use Nette\Bootstrap\Configurator;
 use Nette\DI\Container;
-use Ninjify\Nunjuck\Toolkit;
 use Tester\Assert;
+use Tests\Toolkit\Tests;
 use Throwable;
 
 require_once __DIR__ . '/../../bootstrap.php';
@@ -26,10 +27,10 @@ $parameters = [
 // Production container build
 Toolkit::test(function () use ($parameters): void {
 	$configurator = new Configurator();
-	$configurator->setTempDirectory(TEMP_DIR);
+	$configurator->setTempDirectory(Tests::TEWP_PATH);
 
 	$configurator->addConfig($parameters['rootDir'] . '/config/services.neon');
-	$configurator->addParameters($parameters);
+	$configurator->addStaticParameters($parameters);
 
 	try {
 		$configurator->setDebugMode(false);
@@ -43,10 +44,10 @@ Toolkit::test(function () use ($parameters): void {
 // Development container build
 Toolkit::test(function () use ($parameters): void {
 	$configurator = new Configurator();
-	$configurator->setTempDirectory(TEMP_DIR);
+	$configurator->setTempDirectory(Tests::TEWP_PATH);
 
 	$configurator->addConfig($parameters['rootDir'] . '/config/services.neon');
-	$configurator->addParameters($parameters);
+	$configurator->addStaticParameters($parameters);
 	try {
 		$configurator->setDebugMode(false);
 		$container = $configurator->createContainer();

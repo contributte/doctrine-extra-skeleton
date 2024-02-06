@@ -7,22 +7,19 @@ use Nette\DI\Container;
 abstract class BaseContainerTestCase extends BaseTestCase
 {
 
-	/** @var Container */
-	protected $container;
+	protected Container $container;
 
 	public function __construct(Container $container)
 	{
 		$this->container = $container;
 	}
 
+	/**
+	 * @param class-string $class
+	 */
 	protected function getService(string $class): object
 	{
-		if (strpos($class, '\\') !== false) {
-			/** @var class-string $class */
-			return $this->container->getByType($class);
-		} else {
-			return $this->container->getService($class);
-		}
+		return strpos($class, '\\') !== false ? $this->container->getByType($class) : $this->container->getService($class);
 	}
 
 }

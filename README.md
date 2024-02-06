@@ -30,13 +30,13 @@ Main goal is to provide best prepared starter-kit project for Nette developers.
 
 Focused on:
 
-- latest PHP 8.0
+- PHP 8.1+
 - `nette/*` packages
 - Doctrine ORM via `nettrine/*`
 - Symfony components via `contributte/*`
-- codestyle checking via **CodeSniffer** and `ninjify/*`
-- static analysing via **phpstan**
-- unit / integration tests via **Nette Tester** and `ninjify/*`
+- codestyle checking via **CodeSniffer** and `contributte/qa`
+- static analysing via **phpstan** and `contributte/phpstan`
+- unit / integration tests via **Nette Tester** and `contributte/tester`
 
 ## Demo
 
@@ -58,7 +58,7 @@ composer create-project -s dev contributte/doctrine-skeleton acme
    composer create-project -s dev contributte/doctrine-skeleton
    ```
 
-2) After that, you have to setup Postgres >= 12 database. You can start it manually or use docker image `postgres:12`.
+2) After that, you have to setup Postgres >= 12 database. You can start it manually or use docker image `dockette/postgres:12`.
 
    ```
    docker run -it -p 5432:5432 -e POSTGRES_PASSWORD=doctrine -e POSTGRES_USER=doctrine dockette/postgres:12
@@ -66,7 +66,7 @@ composer create-project -s dev contributte/doctrine-skeleton acme
 
    Or use make task, `make docker-postgres`.
 
-3) Custom configuration file is located at `app/config/local.neon`. Edit it if you want.
+3) Custom configuration file is located at `config/local.neon`. Edit it if you want.
 
    Default configuration should look like:
 
@@ -92,6 +92,37 @@ composer create-project -s dev contributte/doctrine-skeleton acme
    You can start PHP server by running `php -S localhost:8000 -t www` or use prepared make task `make dev`.
 
 6) Open http://localhost:8000 and enjoy!
+
+### Install using [docker-compose](https://https://github.com/docker/compose/)
+
+1) At first, use composer to install this project.
+
+   ```
+   composer create-project -s dev contributte/webapp-project
+   ```
+
+2) Modify `config/local.neon` and set host to `database`
+
+   Default configuration should look like this:
+
+   ```neon
+   # Host Config
+   parameters:
+       # Database
+       database:
+           host: database
+           dbname: contributte
+           user: contributte
+           password: contributte
+   ```
+
+3) Run `docker-compose up`
+
+4) Open http://localhost and enjoy!
+
+   Take a look at:
+	- http://localhost.
+	- http://localhost/admin (admin@admin.cz / admin)
 
 ### Composer packages
 

@@ -6,7 +6,6 @@ use App\Model\Database\Entity\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Nettrine\ORM\Entity\Attributes\Id;
 
 /**
  * @ORM\Entity(repositoryClass="App\Model\Database\Basic\Repository\CategoryRepository")
@@ -14,7 +13,12 @@ use Nettrine\ORM\Entity\Attributes\Id;
 class Category extends Entity
 {
 
-	use Id;
+	/**
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue
+	 */
+	private int $id;
 
 	/** @ORM\Column(type="string") */
 	private string $title;
@@ -31,6 +35,11 @@ class Category extends Entity
 	public function __construct()
 	{
 		$this->books = new ArrayCollection();
+	}
+
+	public function getId(): int
+	{
+		return $this->id;
 	}
 
 	public function getTitle(): string
