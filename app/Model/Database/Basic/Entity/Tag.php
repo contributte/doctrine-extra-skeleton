@@ -2,31 +2,26 @@
 
 namespace App\Model\Database\Basic\Entity;
 
+use App\Model\Database\Basic\Repository\TagRepository;
 use App\Model\Database\Entity\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Model\Database\Basic\Repository\TagRepository")
- */
+#[ORM\Entity(repositoryClass: TagRepository::class)]
 class Tag extends Entity
 {
 
-	/**
-	 * @ORM\Column(name="id", type="integer")
-	 * @ORM\Id
-	 * @ORM\GeneratedValue
-	 */
+	#[ORM\Column(name: 'id', type: 'integer')]
+	#[ORM\Id]
+	#[ORM\GeneratedValue()]
 	private int $id;
 
-	/** @ORM\Column(type="string") */
+	#[ORM\Column(type: 'string')]
 	private string $title;
 
-	/**
-	 * @var Book[]|Collection
-	 * @ORM\ManyToMany(targetEntity="Book", inversedBy="tags")
-	 */
+	/** @var Book[]|Collection */
+	#[ORM\ManyToMany(targetEntity: Book::class, inversedBy: 'tags')]
 	private Collection $books;
 
 	/**

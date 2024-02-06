@@ -30,7 +30,7 @@ extensions:
 	nettrine.orm: Nettrine\ORM\DI\OrmExtension
 	nettrine.orm.cache: Nettrine\ORM\DI\OrmCacheExtension
 	nettrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension(%consoleMode%)
-	nettrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	nettrine.orm.attributes: Nettrine\ORM\DI\OrmAttributesExtension
 
 	translation: Contributte\Translation\DI\TranslationExtension
 
@@ -71,7 +71,7 @@ nettrine.migrations:
 nettrine.orm:
 	entityManagerDecoratorClass: App\Model\Database\EntityManagerDecorator
 
-nettrine.orm.annotations:
+nettrine.orm.attributes:
 	mapping:
 		App\Model\Database\Basic\Entity: %appDir%/Model/Database/Basic/Entity
 		App\Model\Database\Advanced\Entity: %appDir%/Model/Database/Advanced/Entity

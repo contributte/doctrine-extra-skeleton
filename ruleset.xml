@@ -7,6 +7,7 @@
 		<!-- Exclude some rules -->
 		<exclude name="SlevomatCodingStandard.Classes.ClassStructure.IncorrectGroupOrder"/>
 		<exclude name="SlevomatCodingStandard.Functions.DisallowEmptyFunction.EmptyFunction"/>
+		<exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.PartialUse"/>
 		<exclude name="SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable.DisallowedSuperGlobalVariable"/>
 	</rule>
 
