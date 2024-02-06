@@ -38,6 +38,7 @@ class BasicPresenter extends Presenter
 		$form->addSubmit('send', 'OK');
 
 		$form->onSubmit[] = [$this, 'processBookForm'];
+
 		return $form;
 	}
 
@@ -91,6 +92,7 @@ class BasicPresenter extends Presenter
 		$form->addText('title', 'Title');
 		$form->addSubmit('send', 'OK');
 		$form->onSubmit[] = [$this, 'processCategoryForm'];
+
 		return $form;
 	}
 
@@ -110,6 +112,7 @@ class BasicPresenter extends Presenter
 		$form->addText('title', 'Title');
 		$form->addSubmit('send', 'OK');
 		$form->onSubmit[] = [$this, 'processTagForm'];
+
 		return $form;
 	}
 
