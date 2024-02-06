@@ -1,20 +1,40 @@
+includes:
+	- vendor/contributte/phpstan/phpstan.neon
+	- vendor/phpstan/phpstan-doctrine/extension.neon
+
 parameters:
 	level: 8
+	phpVersion: 80300
+
+	tmpDir: %currentWorkingDirectory%/var/tmp/phpstan
+
+	fileExtensions:
+		- php
+		- phpt
+
 	paths:
 		- app
-
-	checkGenericClassInNonGenericObjectType: false
+		- bin
+		- tests
 
 	doctrine:
-		objectManagerLoader: .build/object-manager.php
+		objectManagerLoader: .build/phpstan-doctrine.php
+		ormRepositoryClass: App\Model\Database\Repository\AbstractRepository
 
-	propertyAlwaysWrittenTags:
-		- '@@Gedmo'
-	propertyAlwaysReadTags:
-		- '@@Gedmo'
+	checkGenericClassInNonGenericObjectType: false
 
 	ignoreErrors:
 		-
 			message: "#^Property App\\\\Model\\\\Database\\\\Advanced\\\\Entity\\\\ArticleCategory\\:\\:\\$children is never written, only read\\.$#"
 			count: 1
 			path: app/Model/Database/Advanced/Entity/ArticleCategory.php
+
+		-
+			message: "#^Parameter \\#1 \\$message of method Nette\\\\Application\\\\UI\\\\Control\\:\\:flashMessage\\(\\) expects Nette\\\\HtmlStringable\\|stdClass\\|string, string\\|Stringable given\\.$#"
+			count: 2
+			path: app/Presenters/AdvancedPresenter.php
+
+		-
+			message: "#^Variable method call on Doctrine\\\\ORM\\\\EntityManagerInterface\\.$#"
+			count: 1
+			path: tests/cases/Database/TRepositoriesTest.php

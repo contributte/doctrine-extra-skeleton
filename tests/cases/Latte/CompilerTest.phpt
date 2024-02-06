@@ -2,14 +2,15 @@
 
 namespace Tests\Integration\Latte;
 
-use Nette\Application\UI\ITemplateFactory;
+use Contributte\Tester\Toolkit;
+use Nette\Application\UI\TemplateFactory as ITemplateFactory;
 use Nette\Bridges\ApplicationLatte\Template;
 use Nette\Bridges\ApplicationLatte\TemplateFactory;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
-use Ninjify\Nunjuck\Toolkit;
 use SplFileInfo;
 use Tester\Assert;
+use Tests\Toolkit\Tests;
 use Throwable;
 
 /** @var Container $container */
@@ -22,7 +23,7 @@ Toolkit::test(function () use ($container): void {
 
 	/** @var Template $template */
 	$template = $templateFactory->createTemplate();
-	$finder = Finder::findFiles('*.latte')->from(APP_DIR);
+	$finder = Finder::findFiles('*.latte')->from(Tests::APP_PATH);
 
 	try {
 		/** @var SplFileInfo $file */
@@ -30,6 +31,6 @@ Toolkit::test(function () use ($container): void {
 			$template->getLatte()->warmupCache($file->getRealPath());
 		}
 	} catch (Throwable $e) {
-		Assert::fail(sprintf('Template compilation failed ([%s] %s)', get_class($e), $e->getMessage()));
+		Assert::fail(sprintf('Template compilation failed ([%s] %s)', $e::class, $e->getMessage()));
 	}
 });

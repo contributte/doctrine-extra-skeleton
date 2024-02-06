@@ -3,9 +3,9 @@
 namespace App\Model\Service;
 
 use Doctrine\Common\EventSubscriber;
-use Doctrine\DBAL\Event\ConnectionEventArgs;
-use Doctrine\DBAL\Events;
-use LengthException;
+
+//use Doctrine\DBAL\Event\ConnectionEventArgs;
+//use Doctrine\DBAL\Events;
 
 /**
  * Naive implementation of library limiter that checks the size of book library
@@ -26,20 +26,22 @@ final class LibraryLimiter implements EventSubscriber
 	 */
 	public function getSubscribedEvents(): array
 	{
-		return [Events::postConnect];
+		return [
+			//Events::postConnect
+		];
 	}
 
-	public function postConnect(ConnectionEventArgs $args): void
+	/*public function postConnect(ConnectionEventArgs $args): void
 	{
-		$schemaManager = $args->getConnection()->getSchemaManager();
+		$schemaManager = $args->getConnection()->createSchemaManager();
 
 		if ($schemaManager->tablesExist(['book']) === true) {
-			$all = $args->getConnection()->fetchAll('SELECT id FROM book');
+			$all = $args->getConnection()->fetchAllAssociative('SELECT id FROM book');
 
 			if (count($all) > self::LIBRARY_MAX_SIZE) {
 				throw new LengthException('Oops. Too many books were placed in such a small library and it collapsed.');
 			}
 		}
-	}
+	}*/
 
 }

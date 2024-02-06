@@ -12,7 +12,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.1",
 
     "contributte/bootstrap": "^0.6.0",
     "contributte/application": "^0.5.0",
@@ -20,35 +20,37 @@
     "contributte/cache": "^0.6.0",
     "contributte/http": "^0.4.0",
     "contributte/forms": "^0.5.0",
-    "contributte/mail": "^0.7.0",
+    "contributte/mail": "^0.8.0",
     "contributte/security": "^0.4.0",
-    "contributte/utils": "^0.5.0",
-    "contributte/latte": "^0.5.0",
-    "contributte/tracy": "^0.5.0",
-    "contributte/console": "~0.9.0",
+    "contributte/utils": "^0.7.0",
+    "contributte/latte": "^0.6.0",
+    "contributte/tracy": "^0.6.0",
+    "contributte/console": "~0.10.0",
     "contributte/translation": "~2.0.0",
-    "contributte/neonizer": "~0.5.0",
+    "contributte/neonizer": "~0.6.0",
 
     "nettrine/dbal": "~0.8.0",
     "nettrine/orm": "~0.8.0",
-    "nettrine/migrations": "~0.8.0",
-    "nettrine/fixtures": "~0.6.0",
+    "nettrine/migrations": "~0.9.0",
+    "nettrine/fixtures": "~0.7.0",
     "nettrine/extensions-atlantic18": "~0.6.0"
   },
   "require-dev": {
-    "contributte/dev": "^0.4",
-    "ninjify/qa": "^0.13",
-    "ninjify/nunjuck": "^0.4",
-    "phpstan/phpstan": "^1.0",
-    "phpstan/extension-installer": "^1.0",
-    "phpstan/phpstan-nette": "^1.0",
-    "phpstan/phpstan-doctrine": "^1.0",
-    "phpstan/phpstan-strict-rules": "^1.0"
+    "contributte/qa": "^0.3",
+    "contributte/tester": "^0.3",
+    "contributte/phpstan": "^0.1",
+    "contributte/dev": "^0.5",
+    "phpstan/phpstan-doctrine": "^1.3.40"
   },
   "autoload": {
     "psr-4": {
       "App\\": "app",
       "DB\\": "db"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
     }
   },
   "prefer-stable": true,
@@ -77,7 +79,8 @@
   },
   "config": {
     "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
     }
   }
 }

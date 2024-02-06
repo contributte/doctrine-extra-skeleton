@@ -1,4 +1,4 @@
-FROM thecodingmachine/php:8.3-v4-fpm
+FROM thecodingmachine/php:8.1-v4-fpm
 
 COPY ./ /var/www/html/
 
