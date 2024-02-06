@@ -13,11 +13,9 @@ trait TRepositoryExtra
 {
 
 	/**
-	 * @param string $value
-	 * @param string $key
-	 * @return mixed[]
+77	 * @return mixed[]
 	 */
-	public function findPairs($value, $key = 'id'): array
+	public function findPairs(string $value, string $key = 'id'): array
 	{
 		$select = [];
 		$categories = $this->createQueryBuilder('e')
