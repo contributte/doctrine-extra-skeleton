@@ -2,22 +2,23 @@
 
 namespace App\Router;
 
-use Nette;
 use Nette\Application\Routers\RouteList;
+use Nette\StaticClass;
 
 final class RouterFactory
 {
 
-	use Nette\StaticClass;
+	use StaticClass;
 
 	public static function createRouter(): RouteList
 	{
 		$router = new RouteList();
-		$router->addRoute('<presenter>[[/<locale=en>][/<action>]]', [
+		$router->addRoute('<presenter>[[/<locale=en_GB>][/<action>]]', [
 			'presenter' => 'Basic',
 			'action' => 'default',
-			'locale' => 'en',
+			'locale' => 'en_GB',
 		]);
+
 		return $router;
 	}
 
