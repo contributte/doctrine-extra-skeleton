@@ -147,6 +147,8 @@ class AdvancedPresenter extends Presenter
 		$article->setTitle($values->czTitle);
 		$article->setContent($values->czContent);
 
+		$article->setSlug($values->enTitle);
+
 		$this->em->persist($article);
 		$this->em->flush();
 
