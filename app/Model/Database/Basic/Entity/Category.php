@@ -6,7 +6,7 @@ use App\Model\Database\Entity\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Nettrine\ORM\Entity\Attributes\Id;
+use Nettrine\Extra\Entity\TGeneratedId;
 
 /**
  * @ORM\Entity(repositoryClass="App\Model\Database\Basic\Repository\CategoryRepository")
@@ -14,7 +14,7 @@ use Nettrine\ORM\Entity\Attributes\Id;
 class Category extends Entity
 {
 
-	use Id;
+	use TGeneratedId;
 
 	/** @ORM\Column(type="string") */
 	private string $title;

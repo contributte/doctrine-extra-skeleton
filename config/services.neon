@@ -6,7 +6,8 @@ session:
 	expiration: 14 days
 
 services:
-	router: App\Router\RouterFactory::createRouter
+	routerFactory: App\Router\RouterFactory
+	router: @routerFactory::create
 	subscriber.library_limiter:
 		class: App\Model\Service\LibraryLimiter
 		tags: [nettrine.subscriber]

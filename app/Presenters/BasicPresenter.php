@@ -26,21 +26,6 @@ class BasicPresenter extends Presenter
 		$this->template->tags = $tagRepository->findAll();
 	}
 
-	protected function createComponentBookForm(): Form
-	{
-		$form = new Form();
-		$form->addText('title', 'Title');
-
-		$categoryRepository = $this->em->getCategoryRepository();
-		$categories = $categoryRepository->findPairs('title');
-
-		$form->addSelect('category', 'Category', $categories);
-		$form->addSubmit('send', 'OK');
-
-		$form->onSubmit[] = [$this, 'processBookForm'];
-		return $form;
-	}
-
 	public function actionReadBook(int $id): void
 	{
 		$bookRepository = $this->em->getBookRepository();
@@ -85,15 +70,6 @@ class BasicPresenter extends Presenter
 		$this->redirect('this');
 	}
 
-	protected function createComponentCategoryForm(): Form
-	{
-		$form = new Form();
-		$form->addText('title', 'Title');
-		$form->addSubmit('send', 'OK');
-		$form->onSubmit[] = [$this, 'processCategoryForm'];
-		return $form;
-	}
-
 	public function processCategoryForm(Form $form): void
 	{
 		$values = $form->getValues();
@@ -104,15 +80,6 @@ class BasicPresenter extends Presenter
 		$this->redirect('this');
 	}
 
-	protected function createComponentTagForm(): Form
-	{
-		$form = new Form();
-		$form->addText('title', 'Title');
-		$form->addSubmit('send', 'OK');
-		$form->onSubmit[] = [$this, 'processTagForm'];
-		return $form;
-	}
-
 	public function processTagForm(Form $form): void
 	{
 		$values = $form->getValues();
@@ -121,24 +88,6 @@ class BasicPresenter extends Presenter
 		$this->em->persist($category);
 		$this->em->flush();
 		$this->redirect('this');
-	}
-
-	protected function createComponentTagAddForm(): Form
-	{
-		$form = new Form();
-
-		$tagRepository = $this->em->getTagRepository();
-		$bookRepository = $this->em->getBookRepository();
-
-		$tags = $tagRepository->findPairs('title');
-		$books = $bookRepository->findPairs('title');
-
-		$form->addSelect('tag', 'Tag', $tags);
-		$form->addSelect('book', 'Book', $books);
-		$form->addSubmit('send', 'OK');
-		$form->onSubmit[] = [$this, 'processTagAddForm'];
-
-		return $form;
 	}
 
 	public function processTagAddForm(Form $form): void
@@ -158,6 +107,60 @@ class BasicPresenter extends Presenter
 
 		$this->em->flush();
 		$this->redirect('this');
+	}
+
+	protected function createComponentBookForm(): Form
+	{
+		$form = new Form();
+		$form->addText('title', 'Title');
+
+		$categoryRepository = $this->em->getCategoryRepository();
+		$categories = $categoryRepository->findPairs('title');
+
+		$form->addSelect('category', 'Category', $categories);
+		$form->addSubmit('send', 'OK');
+
+		$form->onSubmit[] = [$this, 'processBookForm'];
+
+		return $form;
+	}
+
+	protected function createComponentCategoryForm(): Form
+	{
+		$form = new Form();
+		$form->addText('title', 'Title');
+		$form->addSubmit('send', 'OK');
+		$form->onSubmit[] = [$this, 'processCategoryForm'];
+
+		return $form;
+	}
+
+	protected function createComponentTagForm(): Form
+	{
+		$form = new Form();
+		$form->addText('title', 'Title');
+		$form->addSubmit('send', 'OK');
+		$form->onSubmit[] = [$this, 'processTagForm'];
+
+		return $form;
+	}
+
+	protected function createComponentTagAddForm(): Form
+	{
+		$form = new Form();
+
+		$tagRepository = $this->em->getTagRepository();
+		$bookRepository = $this->em->getBookRepository();
+
+		$tags = $tagRepository->findPairs('title');
+		$books = $bookRepository->findPairs('title');
+
+		$form->addSelect('tag', 'Tag', $tags);
+		$form->addSelect('book', 'Book', $books);
+		$form->addSubmit('send', 'OK');
+		$form->onSubmit[] = [$this, 'processTagAddForm'];
+
+		return $form;
 	}
 
 }

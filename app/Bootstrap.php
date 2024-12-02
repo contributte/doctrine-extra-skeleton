@@ -3,34 +3,26 @@
 namespace App;
 
 use Contributte\Bootstrap\ExtraConfigurator;
-use Nette\Configurator;
+use Contributte\Nella\Boot\Bootloader;
+use Contributte\Nella\Boot\Preset\NellaPreset;
+use Nette\Application\Application;
 
-class Bootstrap
+final class Bootstrap
 {
 
-	public static function boot(): Configurator
+	public static function boot(): ExtraConfigurator
 	{
-		$configurator = new ExtraConfigurator();
+		return Bootloader::create()
+			->use(NellaPreset::create(__DIR__))
+			->boot();
+	}
 
-		// According to NETTE_DEBUG env
-		$configurator->setEnvDebugMode();
-
-		$configurator->enableTracy(__DIR__ . '/../var/log');
-
-		$configurator->setTimeZone('Europe/Prague');
-		$configurator->setTempDirectory(__DIR__ . '/../var/tmp');
-
-		$configurator->createRobotLoader()
-			->addDirectory(__DIR__)
-			->register();
-
-		$configurator
-			->addConfig(__DIR__ . '/../config/services.neon');
-
-		$configurator
-			->addConfig(__DIR__ . '/../config/local.neon');
-
-		return $configurator;
+	public static function run(): void
+	{
+		self::boot()
+			->createContainer()
+			->getByType(Application::class)
+			->run();
 	}
 
 }

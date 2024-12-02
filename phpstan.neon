@@ -1,20 +1,20 @@
+includes:
+	- vendor/contributte/phpstan/phpstan.neon
+	- vendor/phpstan/phpstan-doctrine/extension.neon
+
 parameters:
-	level: 8
+	level: 9
+	phpVersion: 80100
+
+	tmpDir: %currentWorkingDirectory%/var/tmp/phpstan
+
+	fileExtensions:
+		- php
+		- phpt
+
 	paths:
 		- app
-
-	checkGenericClassInNonGenericObjectType: false
+		- bin
 
 	doctrine:
-		objectManagerLoader: .build/object-manager.php
-
-	propertyAlwaysWrittenTags:
-		- '@@Gedmo'
-	propertyAlwaysReadTags:
-		- '@@Gedmo'
-
-	ignoreErrors:
-		-
-			message: "#^Property App\\\\Model\\\\Database\\\\Advanced\\\\Entity\\\\ArticleCategory\\:\\:\\$children is never written, only read\\.$#"
-			count: 1
-			path: app/Model/Database/Advanced/Entity/ArticleCategory.php
+		objectManagerLoader: .build/phpstan-doctrine.php
