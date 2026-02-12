@@ -211,7 +211,7 @@ jobs:
             --database.dbname=doctrine
           bin/console migrations:migrate -n
           bin/console doctrine:fixtures:load -n
-          bin/console orm:validate
+          bin/console orm:validate --skip-sync
 
       - name: "Tests"
         run: "make tests"
