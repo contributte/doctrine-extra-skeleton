@@ -28,15 +28,20 @@ final class Version20210818092657 extends AbstractMigration
 		$this->addSql('CREATE SEQUENCE ext_log_entries_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
 		$this->addSql('CREATE SEQUENCE tag_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
 		$this->addSql('CREATE TABLE article (id INT NOT NULL, category_id INT DEFAULT NULL, title VARCHAR(128) NOT NULL, slug VARCHAR(128) NOT NULL, content TEXT NOT NULL, created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, content_changed TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, deletedAt TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+		$this->addSql("ALTER TABLE article ALTER COLUMN id SET DEFAULT nextval('article_id_seq')");
 		$this->addSql('CREATE UNIQUE INDEX UNIQ_23A0E66989D9B62 ON article (slug)');
 		$this->addSql('CREATE INDEX IDX_23A0E6612469DE2 ON article (category_id)');
 		$this->addSql('CREATE TABLE article_category (id INT NOT NULL, tree_root INT DEFAULT NULL, parent_id INT DEFAULT NULL, title VARCHAR(64) NOT NULL, lft INT NOT NULL, lvl INT NOT NULL, rgt INT NOT NULL, PRIMARY KEY(id))');
+		$this->addSql("ALTER TABLE article_category ALTER COLUMN id SET DEFAULT nextval('article_category_id_seq')");
 		$this->addSql('CREATE INDEX IDX_53A4EDAAA977936C ON article_category (tree_root)');
 		$this->addSql('CREATE INDEX IDX_53A4EDAA727ACA70 ON article_category (parent_id)');
 		$this->addSql('CREATE TABLE book (id INT NOT NULL, category_id INT NOT NULL, title VARCHAR(255) NOT NULL, already_read BOOLEAN NOT NULL, created_at VARCHAR(255) NOT NULL, updated_at VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))');
+		$this->addSql("ALTER TABLE book ALTER COLUMN id SET DEFAULT nextval('book_id_seq')");
 		$this->addSql('CREATE INDEX IDX_CBE5A33112469DE2 ON book (category_id)');
 		$this->addSql('CREATE TABLE category (id INT NOT NULL, title VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+		$this->addSql("ALTER TABLE category ALTER COLUMN id SET DEFAULT nextval('category_id_seq')");
 		$this->addSql('CREATE TABLE ext_log_entries (id INT NOT NULL, action VARCHAR(8) NOT NULL, logged_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, object_id VARCHAR(64) DEFAULT NULL, object_class VARCHAR(191) NOT NULL, version INT NOT NULL, data TEXT DEFAULT NULL, username VARCHAR(191) DEFAULT NULL, PRIMARY KEY(id))');
+		$this->addSql("ALTER TABLE ext_log_entries ALTER COLUMN id SET DEFAULT nextval('ext_log_entries_id_seq')");
 		$this->addSql('CREATE INDEX log_class_lookup_idx ON ext_log_entries (object_class)');
 		$this->addSql('CREATE INDEX log_date_lookup_idx ON ext_log_entries (logged_at)');
 		$this->addSql('CREATE INDEX log_user_lookup_idx ON ext_log_entries (username)');
@@ -46,6 +51,7 @@ final class Version20210818092657 extends AbstractMigration
 		$this->addSql('CREATE INDEX translations_lookup_idx ON ext_translations (locale, object_class, foreign_key)');
 		$this->addSql('CREATE UNIQUE INDEX lookup_unique_idx ON ext_translations (locale, object_class, field, foreign_key)');
 		$this->addSql('CREATE TABLE tag (id INT NOT NULL, title VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+		$this->addSql("ALTER TABLE tag ALTER COLUMN id SET DEFAULT nextval('tag_id_seq')");
 		$this->addSql('CREATE TABLE tag_book (tag_id INT NOT NULL, book_id INT NOT NULL, PRIMARY KEY(tag_id, book_id))');
 		$this->addSql('CREATE INDEX IDX_25EA1C87BAD26311 ON tag_book (tag_id)');
 		$this->addSql('CREATE INDEX IDX_25EA1C8716A2B381 ON tag_book (book_id)');
