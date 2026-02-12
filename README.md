@@ -30,7 +30,7 @@ Main goal is to provide best prepared starter-kit project for Nette developers.
 
 Focused on:
 
-- PHP 8.1+
+- PHP 8.4+
 - `nette/*` packages
 - Doctrine ORM via `nettrine/*`
 - Symfony components via `contributte/*`

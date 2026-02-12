@@ -14,10 +14,6 @@ services:
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
 
-	nettrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
-
-	nettrine.cache: Nettrine\Cache\DI\CacheExtension
-
 	nettrine.dbal: Nettrine\DBAL\DI\DbalExtension
 	nettrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
 
@@ -28,21 +24,20 @@ extensions:
 	nettrine.migrations: Nettrine\Migrations\DI\MigrationsExtension
 
 	nettrine.orm: Nettrine\ORM\DI\OrmExtension
-	nettrine.orm.cache: Nettrine\ORM\DI\OrmCacheExtension
 	nettrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension(%consoleMode%)
-	nettrine.orm.attributes: Nettrine\ORM\DI\OrmAttributesExtension
 
 	translation: Contributte\Translation\DI\TranslationExtension
 
 nettrine.dbal:
-	connection:
-		driver: pdo_pgsql
-		host: %database.host%
-		dbname: %database.dbname%
-		user: %database.user%
-		password: %database.password%
-		charset:  UTF8
-		serverVersion: 10.0
+	connections:
+		default:
+			driver: pdo_pgsql
+			host: %database.host%
+			dbname: %database.dbname%
+			user: %database.user%
+			password: %database.password%
+			charset:  UTF8
+			serverVersion: "15"
 	debug:
 		panel: %debugMode%
 		sourcePaths: [%appDir%]
@@ -65,20 +60,35 @@ nettrine.fixtures:
 		- %appDir%/../db/Fixtures
 
 nettrine.migrations:
-	directory: %appDir%/../db/Migrations
-	namespace: DB\Migrations
+	directories:
+		DB\Migrations: %appDir%/../db/Migrations
 
 nettrine.orm:
 	entityManagerDecoratorClass: App\Model\Database\EntityManagerDecorator
-
-nettrine.orm.attributes:
-	mapping:
-		App\Model\Database\Basic\Entity: %appDir%/Model/Database/Basic/Entity
-		App\Model\Database\Advanced\Entity: %appDir%/Model/Database/Advanced/Entity
-		# doctrine extensions entities
-		Gedmo\Loggable: %appDir%/../vendor/gedmo/doctrine-extensions/src/Loggable/Entity
-		Gedmo\Translatable: %appDir%/../vendor/gedmo/doctrine-extensions/src/Translatable/Entity
-		Gedmo\Tree: %appDir%/../vendor/gedmo/doctrine-extensions/src/Tree/Entity
+	managers:
+		default:
+			connection: default
+			mapping:
+				Basic:
+					type: attributes
+					directories: [%appDir%/Model/Database/Basic/Entity]
+					namespace: App\Model\Database\Basic\Entity
+				Advanced:
+					type: attributes
+					directories: [%appDir%/Model/Database/Advanced/Entity]
+					namespace: App\Model\Database\Advanced\Entity
+				GedmoLoggable:
+					type: attributes
+					directories: [%appDir%/../vendor/gedmo/doctrine-extensions/src/Loggable/Entity]
+					namespace: Gedmo\Loggable
+				GedmoTranslatable:
+					type: attributes
+					directories: [%appDir%/../vendor/gedmo/doctrine-extensions/src/Translatable/Entity]
+					namespace: Gedmo\Translatable
+				GedmoTree:
+					type: attributes
+					directories: [%appDir%/../vendor/gedmo/doctrine-extensions/src/Tree/Entity]
+					namespace: Gedmo\Tree
 
 translation:
 	locales:
