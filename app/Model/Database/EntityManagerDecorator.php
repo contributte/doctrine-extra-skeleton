@@ -2,12 +2,12 @@
 
 namespace App\Model\Database;
 
-use Nettrine\ORM\EntityManagerDecorator as NettrineEntityManagerDecorator;
+use Doctrine\ORM\Decorator\EntityManagerDecorator as DoctrineEntityManagerDecorator;
 
 /**
  * Custom EntityManagerDecorator
  */
-final class EntityManagerDecorator extends NettrineEntityManagerDecorator
+final class EntityManagerDecorator extends DoctrineEntityManagerDecorator
 {
 
 	use TRepositories;

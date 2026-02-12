@@ -51,7 +51,7 @@ class Environment
 		$tmpDir = realpath($rootDir) . '/tmp';
 
 		// Temp, cache directories
-		define('TEMP_DIR', $tmpDir . '/tests/' . getmypid() . '/' . md5(uniqid((string) microtime(true), true) . lcg_value() . mt_rand(0, 20) . microtime()));
+		define('TEMP_DIR', $tmpDir . '/tests/' . getmypid() . '/' . md5(uniqid((string) microtime(true), true) . random_int(0, PHP_INT_MAX) . microtime()));
 		define('CACHE_DIR', $tmpDir . '/cache');
 		ini_set('session.save_path', $tmpDir . '/sessions');
 

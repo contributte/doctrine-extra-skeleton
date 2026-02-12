@@ -15,7 +15,6 @@ extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
 
 	nettrine.dbal: Nettrine\DBAL\DI\DbalExtension
-	nettrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
 
 	nettrine.extensions.atlantic18: Nettrine\Extensions\Atlantic18\DI\Atlantic18BehaviorExtension
 
@@ -24,7 +23,6 @@ extensions:
 	nettrine.migrations: Nettrine\Migrations\DI\MigrationsExtension
 
 	nettrine.orm: Nettrine\ORM\DI\OrmExtension
-	nettrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension(%consoleMode%)
 
 	translation: Contributte\Translation\DI\TranslationExtension
 
@@ -64,10 +62,10 @@ nettrine.migrations:
 		DB\Migrations: %appDir%/../db/Migrations
 
 nettrine.orm:
-	entityManagerDecoratorClass: App\Model\Database\EntityManagerDecorator
 	managers:
 		default:
 			connection: default
+			entityManagerDecoratorClass: App\Model\Database\EntityManagerDecorator
 			mapping:
 				Basic:
 					type: attributes
