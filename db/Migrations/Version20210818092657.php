@@ -46,7 +46,7 @@ final class Version20210818092657 extends AbstractMigration
 		$this->addSql('CREATE INDEX log_date_lookup_idx ON ext_log_entries (logged_at)');
 		$this->addSql('CREATE INDEX log_user_lookup_idx ON ext_log_entries (username)');
 		$this->addSql('CREATE INDEX log_version_lookup_idx ON ext_log_entries (object_id, object_class, version)');
-		$this->addSql('COMMENT ON COLUMN ext_log_entries.data IS \'(DC2Type:array)\'');
+		$this->addSql('COMMENT ON COLUMN ext_log_entries.data IS \'(DC2Type:json)\'');
 		$this->addSql('CREATE TABLE ext_translations (id SERIAL NOT NULL, locale VARCHAR(8) NOT NULL, object_class VARCHAR(191) NOT NULL, field VARCHAR(32) NOT NULL, foreign_key VARCHAR(64) NOT NULL, content TEXT DEFAULT NULL, PRIMARY KEY(id))');
 		$this->addSql('CREATE INDEX translations_lookup_idx ON ext_translations (locale, object_class, foreign_key)');
 		$this->addSql('CREATE UNIQUE INDEX lookup_unique_idx ON ext_translations (locale, object_class, field, foreign_key)');
