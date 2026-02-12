@@ -27,6 +27,8 @@ extensions:
 	translation: Contributte\Translation\DI\TranslationExtension
 
 nettrine.dbal:
+	types:
+		array: Doctrine\DBAL\Types\JsonType
 	connections:
 		default:
 			driver: pdo_pgsql
