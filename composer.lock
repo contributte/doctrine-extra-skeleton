@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d64408483e815e6e85b3303d224dea14",
+    "content-hash": "54923619093416b5ea82544e70dbdeeb",
     "packages": [
         {
             "name": "contributte/application",
@@ -530,30 +530,31 @@
         },
         {
             "name": "contributte/latte",
-            "version": "v0.6.1",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contributte/latte.git",
-                "reference": "e89045e3c2b7aea08ef48a25136f0d64cc92c290"
+                "reference": "ccbacbaa5e718ae2e7632e218ba28b868642c5c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contributte/latte/zipball/e89045e3c2b7aea08ef48a25136f0d64cc92c290",
-                "reference": "e89045e3c2b7aea08ef48a25136f0d64cc92c290",
+                "url": "https://api.github.com/repos/contributte/latte/zipball/ccbacbaa5e718ae2e7632e218ba28b868642c5c4",
+                "reference": "ccbacbaa5e718ae2e7632e218ba28b868642c5c4",
                 "shasum": ""
             },
             "require": {
-                "latte/latte": "^3.0.12",
+                "latte/latte": "^3.1.0",
                 "php": ">=8.2"
             },
             "require-dev": {
                 "contributte/phpstan": "^0.1",
                 "contributte/qa": "^0.4",
-                "contributte/tester": "^0.4",
+                "contributte/tester": "^0.3",
                 "nette/application": "^3.1.14",
                 "nette/di": "^3.0.17"
             },
             "suggest": {
+                "erusev/parsedown-extra": "to use ParsedownExtension[CompilerExtension]",
                 "nette/di": "to use VersionExtension[CompilerExtension]"
             },
             "type": "library",
@@ -586,7 +587,7 @@
             ],
             "support": {
                 "issues": "https://github.com/contributte/latte/issues",
-                "source": "https://github.com/contributte/latte/tree/v0.6.1"
+                "source": "https://github.com/contributte/latte/tree/v0.7.0"
             },
             "funding": [
                 {
@@ -598,7 +599,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-09T12:34:06+00:00"
+            "time": "2025-12-28T15:15:52+00:00"
         },
         {
             "name": "contributte/mail",
@@ -2118,16 +2119,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v3.1.1",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "cb98e705eeb0fd18f1f1c5cfe1a5f6217f9fa8b3"
+                "reference": "14dea9fc32c0d1cf5e9a1bd59556ae8be023c2a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/cb98e705eeb0fd18f1f1c5cfe1a5f6217f9fa8b3",
-                "reference": "cb98e705eeb0fd18f1f1c5cfe1a5f6217f9fa8b3",
+                "url": "https://api.github.com/repos/nette/latte/zipball/14dea9fc32c0d1cf5e9a1bd59556ae8be023c2a6",
+                "reference": "14dea9fc32c0d1cf5e9a1bd59556ae8be023c2a6",
                 "shasum": ""
             },
             "require": {
@@ -2141,9 +2142,11 @@
             },
             "require-dev": {
                 "nette/php-generator": "^4.0",
-                "nette/tester": "^2.5",
+                "nette/phpstan-rules": "^1.0",
+                "nette/tester": "^2.6",
                 "nette/utils": "^4.0",
-                "phpstan/phpstan-nette": "^2.0@stable",
+                "phpstan/extension-installer": "^1.4@stable",
+                "phpstan/phpstan": "^2.1@stable",
                 "tracy/tracy": "^2.10"
             },
             "suggest": {
@@ -2201,9 +2204,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v3.1.1"
+                "source": "https://github.com/nette/latte/tree/v3.1.4"
             },
-            "time": "2025-12-18T22:30:40+00:00"
+            "time": "2026-04-23T06:30:25+00:00"
         },
         {
             "name": "nette/application",
